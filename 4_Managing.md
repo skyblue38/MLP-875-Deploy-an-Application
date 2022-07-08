@@ -1,3 +1,3 @@
-4. Managing Pod Resources
+# 4. Managing Pod Resources
 
 ...
