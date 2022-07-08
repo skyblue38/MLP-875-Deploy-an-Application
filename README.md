@@ -6,6 +6,6 @@ This liveProject is divided into 5 milestones. Click the inks to read about each
 2. Extending to Deployment
 3. Accessing the App from the Internet
 4. Managing Pod Resources
-5. Pod Scaling and Health Checks
+5. Scaling Pods and Health Checks
 
 ### end
