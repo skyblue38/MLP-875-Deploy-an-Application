@@ -1,3 +1,3 @@
-# 2. Extending
+# 2. Extending to Deployment
 
 ...
