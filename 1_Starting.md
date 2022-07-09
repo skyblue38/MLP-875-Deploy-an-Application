@@ -125,5 +125,5 @@ $ kubectl port-forward --address 0.0.0.0 pod/scart 5000:5000
 
   Browser displayed:
 
-![https://github.com/skyblue38/MLP-875-Deploy-an-Application/blob/main/shoppingcart/MLPstore.png](scart/store)
+![scart Store running screenshot](https://github.com/skyblue38/MLP-875-Deploy-an-Application/blob/main/shoppingcart/MLPstore.png)
 
