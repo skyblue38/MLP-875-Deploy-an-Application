@@ -7,8 +7,8 @@
     export DOCKER_HOST="tcp://192.168.49.2:2376"
     export DOCKER_CERT_PATH="/home/sysadmin/.minikube/certs"
     export MINIKUBE_ACTIVE_DOCKERD="minikube"
-  # To point your shell to minikube's docker-daemon, run:
-  # eval $(minikube -p minikube docker-env)
+  \# To point your shell to minikube's docker-daemon, run:
+  \# eval $(minikube -p minikube docker-env)
 
 ## 2. Build Docker Application image based on shoppingcart
 
