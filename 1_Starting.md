@@ -151,7 +151,7 @@ $ kubectl get pods
   NAME    READY   STATUS    RESTARTS   AGE
   scart   1/1     Running   0          25s
 $ kubectl port-forward --address 0.0.0.0 pod/scart 5000:5000
-
+```
 
 ## 4. View running application in a Windows Browser
 
@@ -180,11 +180,13 @@ Usage: busybox [function [arguments]...]
         utilities into a single executable.  Most people will create a
         link to busybox for each function they wish to use and BusyBox
         will act like whatever it was invoked as.
-i...
+...
+
 /usr/src/app # exit
 ````
 
 ## 5. Disconnect, Delete and Clean-up before Shutdown
+
 
 ```
 $ ps
@@ -200,3 +202,4 @@ $ minikube stop
 $ sudo poweroff
 ```
 
+#### end
