@@ -119,6 +119,40 @@ $ kubectl get pods
 $ kubectl port-forward --address 0.0.0.0 pod/scart 5000:5000
 ```
 
+## 3. Create Pod from YAML file instead...
+
+Create Pod Specification file
+
+```
+$ cat <<end >scart.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: scart
+  name: scart
+spec:
+  containers:
+  - image: scart:1.1
+    name: scart
+    ports:
+    - containerPort: 5000
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+end
+$ kubectl delete pod/scart
+  pod/scart deleted
+$ kubectl apply -f scart.yaml
+  pod/scart created
+$ kubectl get pods
+  NAME    READY   STATUS    RESTARTS   AGE
+  scart   1/1     Running   0          25s
+$ kubectl port-forward --address 0.0.0.0 pod/scart 5000:5000
+
+
 ## 4. View running application in a Windows Browser
 
   Open firefox on Windows desktop and go to URL http://192.168.0.81:5000/store
@@ -126,4 +160,43 @@ $ kubectl port-forward --address 0.0.0.0 pod/scart 5000:5000
   Browser displayed:
 
 ![scart Store running screenshot](https://github.com/skyblue38/MLP-875-Deploy-an-Application/blob/main/shoppingcart/MLPstore.png)
+
+## 4. Connect to interactive shall session within pod/scart
+
+```
+kubectl -ti exec scart -- /bin/busybox sh
+/usr/src/app # busybox --help
+BusyBox v1.35.0 (2022-05-09 17:27:12 UTC) multi-call binary.
+BusyBox is copyrighted by many authors between 1998-2015.
+Licensed under GPLv2. See source distribution for detailed
+copyright notices.
+
+Usage: busybox [function [arguments]...]
+   or: busybox --list[-full]
+   or: busybox --install [-s] [DIR]
+   or: function [arguments]...
+
+        BusyBox is a multi-call binary that combines many common Unix
+        utilities into a single executable.  Most people will create a
+        link to busybox for each function they wish to use and BusyBox
+        will act like whatever it was invoked as.
+i...
+/usr/src/app # exit
+````
+
+## 5. Disconnect, Delete and Clean-up before Shutdown
+
+```
+$ ps
+    PID TTY          TIME CMD
+   1401 pts/0    00:00:00 bash
+  71806 pts/0    00:00:00 kubectl
+  72448 pts/0    00:00:00 ps
+$ kill -2 71806
+[1]+  Done       kubectl port-forward --address 0.0.0.0 scart 5000:5000
+$ kubectl delete pod/scart
+pod "scart" deleted
+$ minikube stop
+$ sudo poweroff
+```
 

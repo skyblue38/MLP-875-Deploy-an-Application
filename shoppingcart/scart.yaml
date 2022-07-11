@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: scart
+  name: scart
+spec:
+  containers:
+  - image: scart:1.1
+    name: scart
+    ports:
+    - containerPort: 5000
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
